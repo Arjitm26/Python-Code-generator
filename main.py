@@ -94,6 +94,7 @@ def main():
                         [TEST RESULTS]
                         <Show test results if {testcases} provided>
                         <Return None if no {testcases} provided>
+                        <If {testcases} provided is invalid return Invalid testcase>
                         [END TEST RESULTS]
 
                         Important:
