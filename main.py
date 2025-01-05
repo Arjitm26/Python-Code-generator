@@ -1,3 +1,30 @@
+# Python Code Assistant - Design Documentation
+
+## Core Architecture
+# The Python Code Assistant is built as a Streamlit web application that integrates Google's Gemini Pro model through the LangChain framework.
+# The application follows a simple flow: users input their API key and code requirements, the system validates the key, 
+# processes the request through the LLM, and displays generated code with optional test results. The core strength lies in its modular design, 
+# separating concerns between UI handling, API authentication, code generation, and response processing.
+
+## Design Choices and Implementation
+# The implementation prioritizes reliability and user experience through several key features. 
+# A retry mechanism handles temporary API failures, while comprehensive error handling ensures graceful degradation when issues occur. 
+# The prompt template is structured to generate consistent, well-documented Python code following PEP 8 guidelines and includes proper error handling. 
+# The response format is strictly defined using tags ([CODE] and [TEST RESULTS]) to ensure reliable parsing and display of results.
+
+## Current Limitations and Assumptions
+# The system operates under several practical assumptions: users have valid API keys and basic Python knowledge, 
+# and moderate query complexity is expected. The current implementation handles single user sessions and 
+# processes one request at a time. Memory management is basic, with simple cleanup after each response processing. 
+# The application assumes reasonable response times from the API and doesn't currently implement caching or advanced optimization.
+
+## Future Development Path
+# The most impactful improvements would focus on three areas: enhanced functionality, reliability, and user experience. 
+# Key additions could include support for multiple programming languages, interactive code editing, and result caching for similar queries. 
+# The security layer could be strengthened with proper API key encryption and rate limiting. User experience could be improved with loading indicators, 
+# syntax highlighting for test results, and one-click code copying functionality. 
+# These improvements would maintain the application's simplicity while expanding its capabilities and reliability.
+
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
